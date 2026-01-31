@@ -1,13 +1,18 @@
 package com.example.BaiTap2.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
 
-@RestController
+
+
+@Controller
 public class HomeController {
 
     @GetMapping("/hello")
-    public String hello() {
-        return "Xin chào";
+    public String index(Model model) {
+        model.addAttribute("message", "Day la message tu Controller");
+        model.addAttribute("title", "Trang chu");
+        return "index";
     }
 }
